@@ -1,0 +1,67 @@
+config: !!python/object:argparse.Namespace
+  bs: 16
+  check_val_every_n_epoch: 1
+  clini_info: {}
+  cls: class
+  cohorts:
+  - PDL1_hospital_1_2_good
+  criterion: BCEWithLogitsLoss
+  data_config: PD-L1config/pdl1_data_config.yaml
+  depth: 2
+  dim: 512
+  dim_head: 64
+  dropout: 0.2
+  ext_cohorts:
+  - PDL1_hospital_1_2_TNBC_good
+  - PDL1_hospital_3_good
+  feats: ctranspath
+  folds: 1
+  heads: 8
+  input_dim: 768
+  label_dict:
+    negative: 0
+    positive: 1
+  logging_name: hospital_1_2_AttentionMIL_good_AttentionMIL_PDL1_hospital_1_2_good_good_['TARGET',
+    'TARGET_REG']
+  lr: 0.0004
+  lr_scheduler: MultiStepLR
+  lr_scheduler_config:
+    gamma: 0.5
+    milestones:
+    - 30
+    - 50
+  mlp_dim: 512
+  model: AttentionMIL
+  name: hospital_1_2_AttentionMIL_good
+  norm: good
+  num_classes: 1
+  num_epochs: 60
+  num_samples: null
+  num_tiles: -1
+  optimizer: Adam
+  pad_tiles: false
+  pool: cls
+  pos_weight: !!python/object/apply:torch._utils._rebuild_tensor_v2
+  - !!python/object/apply:torch.storage._load_from_bytes
+    - !!binary |
+      gAKKCmz8nEb5IGqoUBkugAJN6QMugAJ9cQAoWBAAAABwcm90b2NvbF92ZXJzaW9ucQFN6QNYDQAA
+      AGxpdHRsZV9lbmRpYW5xAohYCgAAAHR5cGVfc2l6ZXNxA31xBChYBQAAAHNob3J0cQVLAlgDAAAA
+      aW50cQZLBFgEAAAAbG9uZ3EHSwR1dS6AAihYBwAAAHN0b3JhZ2VxAGN0b3JjaApGbG9hdFN0b3Jh
+      Z2UKcQFYCQAAADE3NjQzMDUxMnECWAMAAABjcHVxA0sBTnRxBFEugAJdcQBYCQAAADE3NjQzMDUx
+      MnEBYS4BAAAAAAAAAAAAAD8=
+  - 0
+  - !!python/tuple []
+  - !!python/tuple []
+  - false
+  - !!python/object/apply:collections.OrderedDict
+    - []
+  project: PDL1
+  reg_criterion: HuberLoss
+  save_dir: PDL1_results/PDL1_hospital_1_2_good_AttentionMIL/good
+  seed: 979
+  stop_criterion: auroc/val
+  target:
+  - TARGET
+  - TARGET_REG
+  task: binary
+  wd: 0.01
