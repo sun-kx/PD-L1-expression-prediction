@@ -1,2 +1,3 @@
 # Multiple Instance Learning-based Prediction of PD-L1 Expression from H&E-stained Histopathological Images in Breast Cancer
 This project is based on the Multiple Instance Learning (MIL) method and predicts the expression of the PD-L1 gene by analyzing H&E (hematoxylin-eosin) stained slice images in histopathology.
+Based on Pytorch Lightning. All aggregation modules can be loaded as model files in the classifier lightning module. Loss, models, optimizers, and schedulers can be specified as strings according to the PyTorch name in the config file.（This code is based on the [HistoBistro]([https://naiyous.com](https://github.com/peng-lab/HistoBistro)) library）
